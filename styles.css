@@ -524,7 +524,8 @@ section.visible {
     padding: var(--space-4);
 }
 
-.project-kpi-label {
+.project-kpi-label,
+.kpi-label {
     font-size: var(--text-sm);
     margin-bottom: var(--space-2);
     text-transform: uppercase;
