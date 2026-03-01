@@ -1482,3 +1482,27 @@ section.visible {
         width: 100%;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    section {
+        transition: none;
+        transform: none;
+    }
+
+    .phone-mockup,
+    .quadrant::before {
+        transition: none;
+    }
+
+    .phone-mockup:hover {
+        transform: none;
+    }
+
+    .quadrant:hover::before {
+        left: -100%;
+    }
+}
