@@ -663,6 +663,27 @@ section.visible {
     box-shadow: 0 0 0 4px rgba(0, 255, 209, 0.35);
 }
 
+
+.watch-link--label {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-text-light);
+    font-weight: var(--font-weight-normal);
+    cursor: default;
+    text-decoration: none;
+    box-shadow: none;
+    transform: none;
+}
+
+.watch-link--label:hover,
+.watch-link--label:focus-visible {
+    background: transparent;
+    color: var(--color-text-light);
+    box-shadow: none;
+    outline: none;
+    transform: none;
+}
 .watch-link--disabled,
 .watch-link:disabled {
     background-color: #efefef;
