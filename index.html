@@ -5,6 +5,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RANG | beyond traditional marketing</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #FAFAF5;
+            color: #1A1A1A;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: clamp(4rem, 10vw, 7rem) 1rem clamp(3rem, 8vw, 6rem);
+        }
+
+        .hero-title {
+            margin: 0 0 1.5rem;
+            font-size: clamp(4rem, 11vw, 8rem);
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-tagline {
+            margin: 0;
+            max-width: 45rem;
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .key-projects-intro {
+            padding: 0 clamp(1.5rem, 5vw, 5rem) 1.5rem;
+        }
+
+        .key-projects-title {
+            margin: 0;
+            font-size: clamp(2rem, 6vw, 3.4rem);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+    </style>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -15,26 +58,9 @@
         <p class="hero-tagline">Creative social media management, strategy & content creation agency</p>
     </section>
 
-    <!-- Who Are We Section -->
-    <section class="who-are-we">
+    <section class="key-projects-intro">
         <div class="container">
-            <div class="who-are-we-grid">
-                <div class="who-are-we-left">
-                    <h2 class="who-are-we-title">
-                        <span>Who</span>
-                        <span>are we?</span>
-                    </h2>
-
-                </div>
-                <div class="who-are-we-right">
-                    <p>We help brands thrive in today's fast-changing digital world through strategic storytelling and
-                        creator-led expertise.</p>
-                    <p>Our team has worked with global brands including <strong>ASUS</strong>,
-                        <strong>Microsoft</strong>, <strong>Adobe</strong>, <strong>Apple</strong>, and the
-                        <strong>Academy Awards</strong>, delivering campaigns that <strong>turn attention into long-term
-                            impact.</strong></p>
-                </div>
-            </div>
+            <h2 class="key-projects-title">Key projects</h2>
         </div>
     </section>
 
@@ -71,12 +97,13 @@
                 <div class="case-study-visual">
                     <div class="phone-mockup">
                         <div class="phone-screen">
-                            <div class="phone-content">
-                                <!-- Phone content would go here -->
-                            </div>
+                            <iframe class="media-frame" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                                title="ASUS campaign video" loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <p class="watch-link">Click to watch</p>
+                    <p class="watch-link">Watch on load</p>
                 </div>
             </div>
         </div>
@@ -103,12 +130,13 @@
                 <div class="case-study-visual">
                     <div class="phone-mockup">
                         <div class="phone-screen">
-                            <div class="phone-content">
-                                <!-- Phone content would go here -->
-                            </div>
+                            <iframe class="media-frame" src="https://www.youtube.com/embed/oHg5SJYRHA0"
+                                title="ZHIYUN campaign video" loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <p class="watch-link">Click to watch</p>
+                    <p class="watch-link">Watch on load</p>
                 </div>
             </div>
             <!-- <p class="case-study-description">RANG partnered with <strong>ZHIYUN</strong> to launch the <strong>SMOOTH
@@ -148,18 +176,42 @@
                 <div class="case-study-visual">
                     <div class="phone-mockup">
                         <div class="phone-screen">
-                            <div class="phone-content">
-                                <!-- Phone content would go here -->
-                            </div>
+                            <iframe class="media-frame" src="https://www.youtube.com/embed/9bZkp7q19f0"
+                                title="Microsoft Copilot campaign video" loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <p class="watch-link">Click to watch</p>
+                    <p class="watch-link">Watch on load</p>
                 </div>
             </div>
             <!--<p class="case-study-description">RANG partnered with <strong>Microsoft Co-Pilot</strong> on a
                 Back-To-School campaign that showcased real product value, drove a <strong>record-breaking 56,000
                     clicks</strong>, and strengthened audience engagement.</p>
             <p class="case-study-label">case study 3 / microsoft co-pilot campaign</p> -->
+        </div>
+    </section>
+
+    <!-- Who Are We Section -->
+    <section class="who-are-we reveal">
+        <div class="container">
+            <div class="who-are-we-grid">
+                <div class="who-are-we-left">
+                    <h2 class="who-are-we-title">
+                        <span>Who</span>
+                        <span>are we?</span>
+                    </h2>
+
+                </div>
+                <div class="who-are-we-right">
+                    <p>We help brands thrive in today's fast-changing digital world through strategic storytelling and
+                        creator-led expertise.</p>
+                    <p>Our team has worked with global brands including <strong>ASUS</strong>,
+                        <strong>Microsoft</strong>, <strong>Adobe</strong>, <strong>Apple</strong>, and the
+                        <strong>Academy Awards</strong>, delivering campaigns that <strong>turn attention into long-term
+                            impact.</strong></p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -176,9 +228,10 @@
                 <div class="platform-visual">
                     <div class="phone-mockup">
                         <div class="phone-screen">
-                            <div class="phone-content">
-                                <!-- AI production still -->
-                            </div>
+                            <iframe class="media-frame" src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
+                                title="AI production still video" loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
                     <p class="watch-link">A still from an AI production</p>

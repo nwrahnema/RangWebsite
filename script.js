@@ -1,28 +1,25 @@
-// Smooth scroll animations for refined design
-const observerOptions = {
-    threshold: 0.12,
-    rootMargin: '0px 0px -80px 0px'
-};
+const REVEAL_LIMIT = 8;
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+function initReveal() {
+  const revealTargets = Array.from(document.querySelectorAll('section'))
+    .slice(1)
+    .filter(section => !section.classList.contains('key-projects-intro'))
+    .slice(0, REVEAL_LIMIT);
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    
-    // Show hero immediately
-    if (sections.length > 0) {
-        sections[0].classList.add('visible');
-    }
-});
+  revealTargets.forEach(section => section.classList.add('reveal'));
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -48px 0px' }
+  );
+
+  revealTargets.forEach(section => observer.observe(section));
+}
+
+document.addEventListener('DOMContentLoaded', initReveal);

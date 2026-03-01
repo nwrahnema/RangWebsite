@@ -138,12 +138,15 @@ body {
 section {
     /* Base (mobile-first) vertical padding */
     padding-block: var(--space-9);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity var(--transition-slow), transform var(--transition-slow);
 }
 
-section.visible {
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -472,6 +475,18 @@ section.visible {
     margin-bottom: -90px;
 }
 
+.key-projects-intro {
+    padding-top: 0;
+    padding-bottom: var(--space-4);
+}
+
+.key-projects-title {
+    font-size: clamp(2rem, 6vw, 3.4rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    letter-spacing: -0.03em;
+}
+
 .case-study {
     padding-block: var(--space-11);
 }
@@ -592,13 +607,13 @@ section.visible {
     border-radius: 2.375rem;
     padding: 0.7rem;
     position: relative;
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    transition: transform var(--transition-base), opacity var(--transition-base);
+    will-change: transform;
 }
 
 .phone-mockup:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.16);
+    transform: translateY(-2px);
 }
 
 .phone-screen {
@@ -610,14 +625,23 @@ section.visible {
     position: relative;
 }
 
-.phone-content {
+.phone-content,
+.media-frame {
     width: 100%;
     height: 100%;
+}
+
+.phone-content {
     background: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+.media-frame {
+    border: 0;
+    display: block;
 }
 
 /* Center title in phone content without hard-coded offsets */
