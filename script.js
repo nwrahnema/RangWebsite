@@ -13,7 +13,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const revealTargets = document.querySelectorAll('section, .project-card');
+    const revealTargets = document.querySelectorAll('section');
     revealTargets.forEach((target) => observer.observe(target));
 
     const heroSection = document.querySelector('.hero');
