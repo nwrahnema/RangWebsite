@@ -36,8 +36,8 @@ const projects = [
             { intro: 'Set a new record in audience engagement', value: '56,000 clicks' }
         ],
         kpis: [
-            { label: 'Eng. rate', value: '8.2%' },
-            { label: 'Total Eng.', value: '78K' },
+            { label: 'Eng. rate', value: '13%' },
+            { label: 'Total Eng.', value: '92K' },
             { label: 'Link Clicks', value: '56K' }
         ],
         watchText: 'Click to watch'
@@ -87,9 +87,9 @@ function renderProjects() {
                 : `<p class="watch-link">${project.watchText ?? 'Click to watch'}</p>`;
 
             return `
-                <section class="project-card is-${project.accent}">
+                <article class="project-card is-${project.accent}" aria-labelledby="project-${project.accent}-title">
                     <div class="container">
-                        <h2 class="project-title">${project.title}</h2>
+                        <h2 class="project-title" id="project-${project.accent}-title">${project.title}</h2>
                         <div class="project-card-grid">
                             <div class="project-card-content">${metricRows}${kpiRows}</div>
                             <div class="project-card-media">
@@ -102,7 +102,7 @@ function renderProjects() {
                             </div>
                         </div>
                     </div>
-                </section>
+                </article>
             `;
         })
         .join('');
@@ -111,10 +111,11 @@ function renderProjects() {
 document.addEventListener('DOMContentLoaded', () => {
     renderProjects();
 
-    const sections = document.querySelectorAll('section');
-    sections.forEach((section) => observer.observe(section));
+    const revealTargets = document.querySelectorAll('section, .project-card');
+    revealTargets.forEach((target) => observer.observe(target));
 
-    if (sections.length > 0) {
-        sections[0].classList.add('visible');
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        heroSection.classList.add('visible');
     }
 });
