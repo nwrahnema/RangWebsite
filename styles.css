@@ -458,47 +458,49 @@ section.visible {
     text-align: center;
     font-weight: var(--font-weight-normal);
 }
-=== */
 
 /* ============================================
-   Case Study Sections
+   Project Sections
    ============================================ */
 
-.case-titles {
-    text-align: center;
-    font-size: clamp(2.5rem, 6vw, 3.75rem);
-    font-weight: 700;
-    font-style: italic;
-    margin-bottom: -90px;
+.projects-section {
+    padding-block: 0;
 }
 
-.case-study {
+.project-card {
     padding-block: var(--space-11);
 }
 
-.case-study-grid {
+.project-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-weight: var(--font-weight-bold);
+    font-style: italic;
+    margin-bottom: var(--space-8);
+}
+
+.project-card-grid {
     display: grid;
     grid-template-columns: 1.15fr 1fr;
     gap: var(--space-11);
     align-items: start;
-    margin-bottom: var(--space-10);
 }
 
-.case-study-content {
+.project-card-content {
     display: flex;
     flex-direction: column;
     text-align: left;
 }
 
-.case-study-intro {
-    font-size: 1.8125rem; /* 29px */
+.project-card-intro {
+    font-size: 1.8125rem;
     margin-bottom: var(--space-2);
     line-height: 1.6;
     font-weight: var(--font-weight-normal);
-    color: rgb(70, 67, 67)
+    color: rgb(70, 67, 67);
 }
 
-.case-study-metric {
+.project-card-metric {
     font-size: clamp(25px, 7.5vw, 50px);
     font-weight: var(--font-weight-bold);
     line-height: 1.05;
@@ -508,43 +510,22 @@ section.visible {
     color: var(--color-text);
 }
 
-.case-study-stats {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.case-study-stats p {
-    font-size: 1.5625rem; /* 25px */
-    margin-bottom: var(--space-2);
-    line-height: 1.65;
-    font-weight: var(--font-weight-normal);
-    color: rgb(100, 100, 100);
-}
-
-.case-study-zhiyun .case-study-metric {
-    margin-bottom: var(--space-8);
-}
-
-.kpi-grid {
+.project-kpi-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
     margin-top: var(--space-6);
     padding-top: var(--space-6);
     border-top: var(--border-thin);
-    align-items: start;
 }
 
-.kpi-item {
+.project-kpi-item {
     text-align: center;
     padding: var(--space-4);
-    /* Remove large negative offset that caused overlap on small screens */
-    margin-top: 0;
 }
 
-.kpi-label {
-    font-size: var(--text-s);
+.project-kpi-label {
+    font-size: var(--text-sm);
     margin-bottom: var(--space-2);
     text-transform: uppercase;
     letter-spacing: 1.2px;
@@ -552,7 +533,7 @@ section.visible {
     color: var(--color-text-light);
 }
 
-.kpi-value {
+.project-kpi-value {
     font-size: clamp(2.5rem, 5.5vw, 4rem);
     font-weight: var(--font-weight-bold);
     line-height: 1;
@@ -560,32 +541,40 @@ section.visible {
     color: var(--color-text);
 }
 
-.kpi-label span {
-  display: block;
-}
-
-
-.case-study-visual {
+.project-card-media {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: sticky;
-    top: 7.5rem; /* 120px */
+    top: 7.5rem;
 }
 
-@media (min-width: 1025px) {
-    .case-study-visual {
-        align-self: start;
-        margin-top: 3rem;
-    }
-    
-    .case-study-grid {
-        align-items: start;
-    }
+.project-card.is-asus {
+    --project-accent: #111111;
+}
+
+.project-card.is-zhiyun {
+    --project-accent: #0f4c5c;
+}
+
+.project-card.is-microsoft {
+    --project-accent: #005fb8;
+}
+
+.project-card[class*='is-'] .project-title,
+.project-card[class*='is-'] .project-card-metric {
+    color: var(--project-accent, var(--color-text));
+}
+
+.project-card[class*='is-'] .project-kpi-grid {
+    border-top-color: color-mix(in srgb, var(--project-accent, var(--color-border)) 35%, transparent);
+}
+
+.project-card[class*='is-'] .phone-mockup {
+    box-shadow: 0 24px 64px color-mix(in srgb, var(--project-accent, #000) 25%, transparent);
 }
 
 .phone-mockup {
-    /* Fluid phone size with aspect ratio instead of fixed width/height */
     width: min(17.5rem, 70vw);
     aspect-ratio: 9 / 19.5;
     background-color: #000;
@@ -620,16 +609,15 @@ section.visible {
     position: relative;
 }
 
-/* Center title in phone content without hard-coded offsets */
 .phone-content h2 {
-  width: 100%;
-  text-align: center;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 600;
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600;
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .watch-link {
@@ -646,56 +634,26 @@ section.visible {
     color: var(--color-text);
 }
 
-.case-study-description {
-    font-size: var(--text-lg);
-    max-width: 800px;
-    margin: var(--space-8) 0 0 0;
-    line-height: 1.7;
-    text-align: left;
-    font-weight: var(--font-weight-normal);
-    color: var(--color-text);
-}
-
-.case-study-description strong {
-    font-weight: var(--font-weight-semibold);
-}
-
 @media (min-width: 1025px) {
-    .case-study-content {
+    .project-card-content {
         transform: scale(0.9);
         transform-origin: left top;
     }
-    
-    .case-study-grid {
-        align-items: start;
-    }
-}
 
-@media (min-width: 1025px) {
-    .case-study-metric {
+    .project-card-metric {
         margin-bottom: var(--space-4);
     }
-    
-    .case-study-intro {
+
+    .project-card-intro {
         margin-bottom: var(--space-1);
     }
-    
-    .kpi-grid {
+
+    .project-kpi-grid {
         margin-top: var(--space-4);
         padding-top: var(--space-4);
     }
 }
 
-@media (min-width: 1025px) {
-    .case-study-zhiyun .case-study-grid {
-        grid-template-columns: 1.25fr 1fr;
-    }
-    
-    .case-study-zhiyun .case-study-visual {
-        align-self: start;
-        margin-top: 0;
-    }
-}
 
 
 /* ============================================
@@ -1300,7 +1258,7 @@ section.visible {
     }
     
     .who-are-we-grid,
-    .case-study-grid,
+    .project-card-grid,
     .platform-grid,
     .grow-grid,
     .knowledge-grid,
@@ -1319,11 +1277,11 @@ section.visible {
         padding: var(--space-8) var(--space-6);
     }
     
-    .case-study-grid {
+    .project-card-grid {
         gap: var(--space-8);
     }
     
-    .case-study-visual {
+    .project-card-media {
         position: relative;
         top: 0;
     }
@@ -1401,20 +1359,20 @@ section.visible {
         font-size: clamp(44px, 9vw, 64px);
     }
     
-    .case-study-grid {
+    .project-card-grid {
         gap: var(--space-6);
     }
     
-    .case-study-metric {
+    .project-card-metric {
         font-size: clamp(44px, 8vw, 64px);
     }
     
-    .kpi-grid {
+    .project-kpi-grid {
         grid-template-columns: 1fr;
         gap: var(--space-5);
     }
     
-    .kpi-value {
+    .project-kpi-value {
         font-size: clamp(36px, 7vw, 56px);
     }
     
