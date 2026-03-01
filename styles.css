@@ -8,59 +8,9 @@
     box-sizing: border-box;
 }
 
-:root {
-    /* Color Palette */
-    --color-bg: #FAFAF5;
-    --color-text: #1A1A1A;
-    --color-text-light: rgba(26, 26, 26, 0.7);
-    --color-border: #1A1A1A;
-    --color-accent: #000000;
-    
-    /* Typography */
-    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    
-    /* Font Sizes */
-    --text-xs: 13px;
-    --text-sm: 15px;
-    --text-base: 17px;
-    --text-lg: 19px;
-    --text-xl: 22px;
-    --text-2xl: 28px;
-    --text-3xl: 36px;
-    --text-4xl: 48px;
-    --text-5xl: 64px;
-    --text-6xl: 80px;
-    --text-hero: clamp(72px, 11vw, 128px);
-    
-    /* Spacing Scale */
-    --space-1: 8px;
-    --space-2: 12px;
-    --space-3: 16px;
-    --space-4: 24px;
-    --space-5: 32px;
-    --space-6: 40px;
-    --space-7: 48px;
-    --space-8: 64px;
-    --space-9: 80px;
-    --space-10: 100px;
-    --space-11: 120px;
-    --space-12: 160px;
-    
-    /* Transitions */
-    --transition-fast: 0.2s ease;
-    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    
-    /* Borders */
-    --border-thin: 1px solid var(--color-border);
-}
-
-/* Override design tokens with a valid :root using rem-based sizing
-   This keeps the same aesthetic while improving scalability */
+/* ============================================
+   Design Tokens
+   ============================================ */
 :root {
     /* Color Palette */
     --color-bg: #FAFAF5;
@@ -458,7 +408,6 @@ section.visible {
     text-align: center;
     font-weight: var(--font-weight-normal);
 }
-=== */
 
 /* ============================================
    Case Study Sections
@@ -544,7 +493,7 @@ section.visible {
 }
 
 .kpi-label {
-    font-size: var(--text-s);
+    font-size: var(--text-sm);
     margin-bottom: var(--space-2);
     text-transform: uppercase;
     letter-spacing: 1.2px;
