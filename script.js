@@ -25,13 +25,6 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
-reelStops.forEach((stop) => {
-  stop.addEventListener('click', () => {
-    setActiveStop(stop.dataset.target);
-  });
-});
-
 if (window.location.hash) {
-  const initial = window.location.hash.slice(1);
-  setActiveStop(initial);
+  setActiveStop(window.location.hash.slice(1));
 }
