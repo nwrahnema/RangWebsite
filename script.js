@@ -7,7 +7,7 @@ const setActiveStop = (id) => {
   });
 };
 
-const observer = new IntersectionObserver(
+const navObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -23,7 +23,30 @@ const observer = new IntersectionObserver(
   }
 );
 
-sections.forEach((section) => observer.observe(section));
+const fadeObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.12,
+    rootMargin: '0px 0px -80px 0px'
+  }
+);
+
+sections.forEach((section, index) => {
+  navObserver.observe(section);
+
+  if (index === 0) {
+    section.classList.add('is-visible');
+  } else {
+    fadeObserver.observe(section);
+  }
+});
 
 if (window.location.hash) {
   setActiveStop(window.location.hash.slice(1));

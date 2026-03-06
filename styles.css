@@ -54,11 +54,22 @@ body {
   mix-blend-mode: soft-light;
 }
 
+
 .section-panel {
   width: min(1200px, 92vw);
   margin: 0 auto;
   scroll-margin-top: 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 650ms ease, transform 650ms ease;
+  will-change: opacity, transform;
 }
+
+.section-panel.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .hero {
   min-height: 100vh;
@@ -404,5 +415,13 @@ h1 {
 
   .film-scrollbar {
     right: 0.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-panel {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
