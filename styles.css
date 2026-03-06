@@ -12,22 +12,26 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   min-height: 100vh;
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .landing {
   position: relative;
-  min-height: 100vh;
   isolation: isolate;
+  padding-bottom: 5rem;
 }
 
 .cinema-bg {
-  position: absolute;
+  position: fixed;
   inset: -22%;
   z-index: -2;
   background:
@@ -50,10 +54,14 @@ body {
   mix-blend-mode: soft-light;
 }
 
-.hero {
+.section-panel {
   width: min(1200px, 92vw);
-  min-height: 100vh;
   margin: 0 auto;
+  scroll-margin-top: 0;
+}
+
+.hero {
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr minmax(280px, 430px);
   align-items: center;
@@ -123,6 +131,12 @@ h1 {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.back-to-top {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  padding-inline: 1rem;
+}
+
 .reel {
   position: relative;
   height: min(74vh, 660px);
@@ -167,6 +181,172 @@ h1 {
 .card-3 { animation-delay: 10s; }
 .card-4 { animation-delay: 15s; }
 
+.case-study,
+.start-project {
+  min-height: 100vh;
+  padding: 4.5rem 0 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.case-study h2,
+.start-project h2 {
+  font-size: clamp(1.9rem, 5.2vw, 3.7rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.1rem;
+}
+
+.case-study h2 {
+  text-align: center;
+}
+
+.case-study-grid {
+  display: grid;
+  grid-template-columns: 1.1fr minmax(250px, 340px);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: stretch;
+}
+
+.case-study-content {
+  max-width: 760px;
+}
+
+.case-study-visual {
+  position: sticky;
+  top: 6.5rem;
+}
+
+.case-visual-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(10, 10, 10, 0.8);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
+  aspect-ratio: 9 / 15;
+}
+
+.case-visual-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.case-study-intro {
+  font-size: clamp(1.125rem, 2.2vw, 1.35rem);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.case-study-metric {
+  font-size: clamp(34px, 5.2vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 1.6rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.case-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+}
+
+.case-body {
+  max-width: 60ch;
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  align-items: stretch;
+}
+
+.kpi-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.kpi-label {
+  font-size: 0.8125rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.kpi-value {
+  font-size: clamp(40px, 5.5vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.kpi-label span {
+  display: block;
+}
+
+.film-scrollbar {
+  position: fixed;
+  right: clamp(0.75rem, 2.2vw, 2rem);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 10;
+}
+
+.film-track {
+  position: absolute;
+  inset: -14px 6px;
+  border-radius: 99px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(225, 225, 225, 0.16) 0 16px,
+      rgba(30, 30, 30, 0.9) 16px 23px
+    );
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+
+.reel-stop {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.65);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.reel-stop:hover {
+  transform: scale(1.15);
+}
+
+.reel-stop.active {
+  background: #ecebe7;
+}
+
 @keyframes drift {
   0% { transform: translate3d(-1%, 0, 0) scale(1); }
   100% { transform: translate3d(2%, -1.5%, 0) scale(1.03); }
@@ -191,18 +371,38 @@ h1 {
 }
 
 @media (max-width: 940px) {
-  body {
-    overflow-y: auto;
-  }
-
   .hero {
     grid-template-columns: 1fr;
     align-content: center;
-    padding: 4rem 0;
+    padding: 4rem 0 2rem;
   }
 
   .reel {
     width: min(430px, 100%);
     height: min(64vh, 620px);
+  }
+
+  .case-study,
+  .start-project {
+    min-height: 100svh;
+    padding: 4.25rem 0 2rem;
+  }
+
+  .case-study-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study-visual {
+    position: static;
+    max-width: 22rem;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .film-scrollbar {
+    right: 0.35rem;
   }
 }
