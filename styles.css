@@ -189,6 +189,23 @@ h1 {
   margin-bottom: 1.1rem;
 }
 
+.case-study-intro {
+  font-size: 1.0625rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-dim);
+}
+
+.case-study-metric {
+  font-size: clamp(52px, 7.5vw, 88px);
+  font-weight: 700;
+  line-height: 1.05;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
 .case-label {
   font-size: 0.75rem;
   letter-spacing: 0.14em;
@@ -203,25 +220,40 @@ h1 {
   color: var(--text-dim);
 }
 
-.case-metrics {
-  margin-top: 2.2rem;
+.kpi-grid {
   display: grid;
-  gap: 0.5rem;
-  max-width: 65rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  align-items: start;
 }
 
-.metric-intro {
+.kpi-item {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.kpi-label {
+  font-size: 0.8125rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 500;
   color: var(--text-dim);
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-  letter-spacing: 0.01em;
 }
 
-.metric-highlight {
-  font-size: clamp(1.8rem, 4.8vw, 4rem);
-  line-height: 1.02;
+.kpi-value {
+  font-size: clamp(40px, 5.5vw, 64px);
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: -0.02em;
-  font-weight: 600;
-  margin-bottom: 0.7rem;
+  color: var(--text);
+}
+
+.kpi-label span {
+  display: block;
 }
 
 .film-scrollbar {
@@ -308,8 +340,9 @@ h1 {
     padding: 5rem 0;
   }
 
-  .metric-highlight {
-    margin-bottom: 1rem;
+  .kpi-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
   .film-scrollbar {
