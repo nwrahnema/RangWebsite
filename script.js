@@ -1,28 +1,53 @@
-// Smooth scroll animations for refined design
-const observerOptions = {
-    threshold: 0.12,
-    rootMargin: '0px 0px -80px 0px'
+const sections = document.querySelectorAll('.section-panel[id]');
+const reelStops = document.querySelectorAll('.reel-stop');
+
+const setActiveStop = (id) => {
+  reelStops.forEach((stop) => {
+    stop.classList.toggle('active', stop.dataset.target === id);
+  });
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
+const navObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        history.replaceState(null, '', `#${id}`);
+        setActiveStop(id);
+      }
     });
-}, observerOptions);
+  },
+  {
+    rootMargin: '-35% 0px -45% 0px',
+    threshold: 0.15
+  }
+);
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        observer.observe(section);
+const fadeObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
     });
-    
-    // Show hero immediately
-    if (sections.length > 0) {
-        sections[0].classList.add('visible');
-    }
+  },
+  {
+    threshold: 0.12,
+    rootMargin: '0px 0px -80px 0px'
+  }
+);
+
+sections.forEach((section, index) => {
+  navObserver.observe(section);
+
+  if (index === 0) {
+    section.classList.add('is-visible');
+  } else {
+    fadeObserver.observe(section);
+  }
 });
+
+if (window.location.hash) {
+  setActiveStop(window.location.hash.slice(1));
+}
