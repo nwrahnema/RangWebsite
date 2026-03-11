@@ -4,6 +4,8 @@
   --text: #f4f3ef;
   --text-dim: rgba(244, 243, 239, 0.72);
   --line: rgba(255, 255, 255, 0.14);
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 * {
@@ -37,6 +39,7 @@ body {
   background:
     radial-gradient(120% 110% at 12% 15%, rgba(58, 52, 46, 0.18), transparent 45%),
     radial-gradient(100% 90% at 78% 70%, rgba(44, 41, 36, 0.16), transparent 48%),
+    radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(184, 85, 20, 0.15), rgba(110, 30, 10, 0.08) 25%, transparent 50%),
     linear-gradient(130deg, #050505, #0a0a09 58%, #060605);
   animation: drift 22s ease-in-out infinite alternate;
 }
@@ -403,6 +406,50 @@ h1 {
     transform: translateY(0) scale(1);
     z-index: 3;
   }
+}
+
+@keyframes text-burn-in {
+  0% {
+    opacity: 0;
+    filter: blur(16px) brightness(2.5) contrast(1.5);
+    transform: scale(1.1) translateY(-10px);
+    color: rgba(255, 200, 100, 0.8);
+  }
+  30% {
+    opacity: 1;
+    filter: blur(6px) brightness(1.8) contrast(1.2);
+    transform: scale(1.03) translateY(-3px);
+    color: var(--text);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0) brightness(1) contrast(1);
+    transform: scale(1) translateY(0);
+    color: var(--text);
+  }
+}
+
+@keyframes hero-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-burn-in {
+  animation: text-burn-in 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* Override section-panel opacity to ensure animation plays cleanly */
+  opacity: 0; 
+}
+
+.delayed-fade {
+  opacity: 0;
+  animation: hero-fade-in 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.6s; /* Starts as text burn-in nears completion */
 }
 
 @media (max-width: 940px) {
