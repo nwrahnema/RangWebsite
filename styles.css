@@ -311,7 +311,7 @@ h1 {
 }
 
 .kpi-label span {
-  display: block;
+  display: inline;
 }
 
 .film-scrollbar {
